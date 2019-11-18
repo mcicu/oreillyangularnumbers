@@ -1,0 +1,35 @@
+<div class="container mt-4">
+  <div class="row">
+    <div class="col col-xs-12">
+      <button (click)="oddOnly = !oddOnly" class="btn btn-primary">Toggle odd only</button>
+    </div>
+  </div>
+  <div class="row mt-2">
+    <div class="col col-xs-12">
+      <div *ngIf="oddOnly" class="list-group">
+        <div
+          *ngFor="let odd of oddNumbers"
+          class="list-group-item"
+          [ngClass]="{odd : odd % 2 == 1 }"
+          [ngStyle]="{backgroundColor: odd % 2 == 1 ? 'transparent' : 'transparent'}"
+        >{{ odd }}</div>
+      </div>
+      <div *ngIf="!oddOnly" class="list-group">
+        <div
+          *ngFor="let even of evenNumbers"
+          class="list-group-item"
+          [ngClass]="{odd: even % 2 == 1}"
+          [ngStyle]="{backgroundColor: even % 2 == 1 ? 'transparent' : 'transparent'}"
+        >{{ even }}</div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="row mt-2">
+    <div class="col col-xs-12">
+      <p appBasicHighlight>paragraph styled by directive</p>
+      <p appBetterHighlight>paragraph styled by better directive</p>
+    </div>
+  </div>
+</div>
